@@ -53,17 +53,22 @@ main p {
   margin: 1em 0;
 }
 
-.container {
-  width: 50ch;
-  margin-left: 50px;
+.array {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 50ch;
 }
 
-main {
+.container {
+  width: 50%;
+  margin: 0 auto;
+  display: table;
+}
+
+.main {
   padding-bottom: 4em;
   flex-grow: 1;
+  width: 100%;
 }
 
 footer {

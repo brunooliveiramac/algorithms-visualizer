@@ -27,20 +27,23 @@ class SortingVisualizer extends React.Component {
         const {array} = this.state;
 
         return (
-            <main>
+            <main className="main">
                 <h2 className="tittle">Sorting Algorithms</h2>
-                <button className="button" onClick={() => this.bubbleSort()}>Bubble Sort</button>
-                <button className="button" onClick={() => this.insertionSort()}>Insertion Sort</button>
-
                 <div className="container">
-                    {array.map((value: any, idx: any) => (
-                        <div
-                            className="arrayElement"
-                            key={idx}
-                            style={{
-                                height: `${value}px`,
-                            }}></div>
-                    ))}
+                    <button className="button" onClick={() => this.bubbleSort()}>Bubble Sort</button>
+                    <button className="button" onClick={() => this.insertionSort()}>Insertion Sort</button>
+                    <button className="button" onClick={() => this.selectionSort()}>Selection Sort</button>
+
+                    <div className="array">
+                        {array.map((value: any, idx: any) => (
+                            <div
+                                className="arrayElement"
+                                key={idx}
+                                style={{
+                                    height: `${value}px`,
+                                }}></div>
+                        ))}
+                    </div>
                 </div>
                 <footer>
                     <p></p>
@@ -102,6 +105,32 @@ class SortingVisualizer extends React.Component {
                     }, 20)
                 })
             }
+        }
+    }
+
+    // Best: O(n^2) time | O(1) space
+    // Average: O(n^2) time | O(1) space
+    // Worst: O(n^2) time | O(1) space
+    async selectionSort() {
+        // @ts-ignore
+        let arr = this.state.array
+        const array = arr.slice();
+        let startIndex = 0;
+        while (startIndex < array.length - 1) {
+            let smallIndex = startIndex;
+            for (let i = startIndex + 1; i < array.length; i++) {
+                if (array[smallIndex] > array[i]) {
+                    smallIndex = i;
+                }
+            }
+            await new Promise<void>(next => {
+                this.swap(startIndex, smallIndex, array)
+                startIndex++;
+                this.setState({array})
+                setTimeout(() => {
+                    next()
+                }, 20)
+            })
         }
     }
 }
