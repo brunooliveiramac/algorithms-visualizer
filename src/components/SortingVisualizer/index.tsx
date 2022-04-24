@@ -30,6 +30,8 @@ class SortingVisualizer extends React.Component {
             <main>
                 <h2 className="tittle">Sorting Algorithms</h2>
                 <button className="button" onClick={() => this.bubbleSort()}>Bubble Sort</button>
+                <button className="button" onClick={() => this.insertionSort()}>Insertion Sort</button>
+
                 <div className="container">
                     {array.map((value: any, idx: any) => (
                         <div
@@ -47,43 +49,60 @@ class SortingVisualizer extends React.Component {
         )
     }
 
+    // Best: O(n) time | O(1) space
+    // Average: O(n^2) time | O(1) space
+    // Worst: O(n^2) time | O(1) space
     async bubbleSort() {
-        console.log("Hi")
         // @ts-ignore
         let arr = this.state.array
-        // @ts-ignore
         const array = arr.slice();
         let isSorted = false
         let counter = 0;
         while (!isSorted) {
-            // @ts-ignore
-            console.log(array.length)
-
             isSorted = true
-            // @ts-ignore
             for (let i = 0; i < array.length - 1; i++) {
-                // @ts-ignore
-                if(array[i] > array[i + 1]){
-                    await new Promise<void>(next=> {
-                        // @ts-ignore
+                if (array[i] > array[i + 1]) {
+                    await new Promise<void>(next => {
                         this.swap(i, i + 1, array)
                         isSorted = false
                         this.setState({array})
                         setTimeout(() => {
-                           next()
+                            next()
                         }, 20)
                     })
                 }
             }
-            counter ++;
+            counter++;
         }
-        console.log(array)
     }
 
-    private swap(i:number, j:number, array:number[]){
+    private swap(i: number, j: number, array: number[]) {
         const temp = array[j];
         array[j] = array[i]
         array[i] = temp
+    }
+
+
+    // Best: O(n) time | O(1) space
+    // Average: O(n^2) time | O(1) space
+    // Worst: O(n^2) time | O(1) space
+    async insertionSort() {
+        // @ts-ignore
+        let arr = this.state.array
+        const array = arr.slice();
+        for (let i = 0; i < array.length; i++) {
+            let j = i
+            while ((j > 0) && (array[j] < array[j - 1])) {
+                await new Promise<void>(next => {
+                    this.swap(j, j - 1, array)
+                    j -= 1
+                    this.setState({array})
+                    setTimeout(() => {
+                        next()
+                    }, 20)
+                })
+            }
+        }
     }
 }
 
