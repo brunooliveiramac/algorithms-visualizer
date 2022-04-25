@@ -129,7 +129,7 @@ class SortingVisualizer extends React.Component {
                 this.setState({array})
                 setTimeout(() => {
                     next()
-                }, 20)
+                }, 200)
             })
         }
     }
