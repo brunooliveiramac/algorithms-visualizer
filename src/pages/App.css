@@ -54,15 +54,17 @@ main p {
 }
 
 .array {
-  position: fixed;
+  width: 100%;
+  position: absolute;
   bottom: 0;
-  width: 50ch;
+  width: 100%;
 }
 
 .container {
-  width: 50%;
-  margin: 0 auto;
-  display: table;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  height: 100%;
 }
 
 .main {
@@ -75,6 +77,6 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #d6d3c8;
+  background-color: #333;
 }
 

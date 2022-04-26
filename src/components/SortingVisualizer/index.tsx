@@ -16,7 +16,7 @@ class SortingVisualizer extends React.Component {
 
     resetArray() {
         const array = [];
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 80; i++) {
             array.push(randomIntFromInterval(5, 500));
         }
         this.setState({array});
@@ -28,7 +28,6 @@ class SortingVisualizer extends React.Component {
 
         return (
             <main className="main">
-                <h2 className="tittle">Sorting Algorithms</h2>
                 <div className="container">
                     <button className="button" onClick={() => this.bubbleSort()}>Bubble Sort</button>
                     <button className="button" onClick={() => this.insertionSort()}>Insertion Sort</button>

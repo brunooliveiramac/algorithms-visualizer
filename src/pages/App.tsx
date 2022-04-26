@@ -7,7 +7,13 @@ import SortingVisualizer from "../components/SortingVisualizer";
 function App() {
     const [tarefas, setTarefas] = useState<ITarefa[]>([]);
     return (
-        <SortingVisualizer></SortingVisualizer>
+        <div>
+            <div className="topnav">
+               <h2>Sorting Algorithms</h2>
+            </div>
+            <SortingVisualizer></SortingVisualizer>
+        </div>
+
     );
 }
 
